@@ -13,7 +13,7 @@ public class Usuario {
 	private String nombre;
 	private String apellidos;
 	private String contraseña;
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "advisor", fetch = FetchType.EAGER)
 	private List<Viaje> viajes_fav = new ArrayList<Viaje>();
 	
 	public Usuario() {

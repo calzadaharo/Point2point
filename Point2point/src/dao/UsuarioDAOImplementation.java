@@ -76,13 +76,13 @@ public class UsuarioDAOImplementation implements UsuarioDAO{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Usuario login (String email, String password) {
+	public Usuario login (String email, String contraseña) {
 	  Session session = SessionFactoryService.get().openSession();
 	  Usuario usuario = null;
 	  session.beginTransaction();
-	  Query q = session.createQuery("select p from Usuario p where p.email = :email and p.password = :password");
+	  Query q = session.createQuery("select p from Usuario p where p.email = :email and p.contraseña = :contraseña");
 	  q.setParameter("email", email);
-	  q.setParameter("password", password);
+	  q.setParameter("contraseña", contraseña);
 	  List<Usuario> tfgs = q.getResultList();
 	  if (tfgs.size() > 0)
 	  	usuario = (Usuario) (q.getResultList().get(0));

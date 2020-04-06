@@ -3,6 +3,7 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
 public class Viaje {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -10,7 +11,7 @@ public class Viaje {
 	private String origen;
 	private String destino;
 	@ManyToOne
-	private String usuario;
+	private Usuario advisor;
 	
 	public Viaje() {
 		super();
@@ -23,7 +24,7 @@ public class Viaje {
 		result = prime * result + ((destino == null) ? 0 : destino.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((origen == null) ? 0 : origen.hashCode());
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		result = prime * result + ((advisor == null) ? 0 : advisor.hashCode());
 		return result;
 	}
 
@@ -51,17 +52,17 @@ public class Viaje {
 				return false;
 		} else if (!origen.equals(other.origen))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (advisor == null) {
+			if (other.advisor != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!advisor.equals(other.advisor))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Viaje [id=" + id + ", origen=" + origen + ", destino=" + destino + ", usuario=" + usuario + "]";
+		return "Viaje [id=" + id + ", origen=" + origen + ", destino=" + destino + ", advisor=" + advisor + "]";
 	}
 
 	public String getId() {
@@ -88,12 +89,12 @@ public class Viaje {
 		this.destino = destino;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public Usuario getAdvisor() {
+		return advisor;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Usuario usuario) {
+		this.advisor = usuario;
 	}
 
 	public static long getSerialversionuid() {
